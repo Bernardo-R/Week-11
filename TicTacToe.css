@@ -1,0 +1,52 @@
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+body {
+  display: flex;
+  justify-content: center;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(img/1249598-green-chalkboard.jpg);
+  background-position: center;
+  font: 25pt "Gloria Hallelujah";
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+  margin: auto;
+}
+
+.container {
+  padding: 70px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  box-shadow: 0 0 0 2px;
+  cursor: pointer;
+  font-family: "Permanent Marker", cursive;
+}
+
+.cell:hover {
+  background-color: rgb(122, 122, 122, 0.3);
+}
+
+#cellContainer {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 225px;
+  margin: auto;
+}
+
+#btnEl {
+  border-radius: 10px;
+}
+
+#btnEl:hover {
+  background-color: green;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.6);
+}
