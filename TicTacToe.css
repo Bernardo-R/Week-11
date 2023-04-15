@@ -37,7 +37,7 @@ body {
 #cellContainer {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  width: 225px;
+  width: 300px;
   margin: auto;
 }
 
