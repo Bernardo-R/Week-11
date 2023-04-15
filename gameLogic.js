@@ -1,4 +1,4 @@
-const cells = document.querySelectorAll(".cell");
+const cells = document.querySelectorAll(".cell"); //$(".cell")
 const statusText = document.querySelector("#statusText");
 const btnEl = document.querySelector("#btnEl");
 const winSequence = [
@@ -23,9 +23,8 @@ function initalizeGame() {
   statusText.textContent = `${currentPlayer}'s turn`; //diplay who's turn is it
   running = true; //game status active
 }
-
+// all of this will happend on every click
 function cellClicked() {
-  // all of this will happend on every click
   const cellIndex = this.getAttribute("id");
 
   if (playerChoice[cellIndex] != "" || running == false) {
@@ -36,6 +35,7 @@ function cellClicked() {
 
   console.log(playerChoice); // checking if current player is being store in this array
 }
+//cellClicked function ended
 
 function updateCell(cell, index) {
   playerChoice[index] = currentPlayer;
@@ -44,7 +44,7 @@ function updateCell(cell, index) {
 
 function changePlayer() {
   currentPlayer = currentPlayer === "X" ? "O" : "X";
-  //   if ((currentPlayer = "X")) {
+  //   if (currentPlayer == "X") {
   //     currentPlayer = "O";
   //   } else {
   //     currentPlayer = "X";
