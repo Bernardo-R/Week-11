@@ -1,4 +1,4 @@
-const cells = document.querySelectorAll(".cell"); //$(".cell")
+const cells = document.querySelectorAll(".cell");
 const statusText = document.querySelector("#statusText");
 const btnEl = document.querySelector("#btnEl");
 const winSequence = [
@@ -18,19 +18,19 @@ let running = false; // game status
 initalizeGame(); //start game
 
 function initalizeGame() {
-  cells.forEach((cell) => cell.addEventListener("click", cellClicked)); // listening for clicks
+  cells.forEach((cell) => cell.addEventListener("click", cellClicked)); // adding eventlistener to all cells
   btnEl.addEventListener("click", restartGame); // restart button active
-  statusText.textContent = `${currentPlayer}'s turn`; //diplay who's turn is it
+  statusText.textContent = `${currentPlayer}'s turn`; //display who's turn is it
   running = true; //game status active
 }
 // all of this will happend on every click
 function cellClicked() {
-  const cellIndex = this.getAttribute("id");
+  const cellId = this.getAttribute("id");
 
-  if (playerChoice[cellIndex] != "" || running == false) {
+  if (playerChoice[cellId] != "" || running == false) {
     return alert("Select an empty box"); //if player does not click an empty box
   }
-  updateCell(this, cellIndex);
+  updateCell(this, cellId);
   checkWinner();
 
   console.log(playerChoice); // checking if current player is being store in this array
@@ -43,12 +43,11 @@ function updateCell(cell, index) {
 }
 
 function changePlayer() {
-  currentPlayer = currentPlayer === "X" ? "O" : "X";
-  //   if (currentPlayer == "X") {
-  //     currentPlayer = "O";
-  //   } else {
-  //     currentPlayer = "X";
-  //   }
+  if (currentPlayer == "X") {
+    currentPlayer = "O";
+  } else {
+    currentPlayer = "X";
+  }
 
   statusText.textContent = `${currentPlayer}'s turn`;
 }
@@ -66,6 +65,7 @@ function checkWinner() {
       continue; // if true, 'continue' will skip and keep the loop runnig
     } else if (cellA == cellB && cellB == cellC) {
       roundWon = true;
+      console.log(combinations); //to display the winning combination
       break;
     }
   }
@@ -74,6 +74,7 @@ function checkWinner() {
     statusText.textContent = `${currentPlayer} Wins!`;
     running = false;
   } else if (playerChoice.includes("") == false) {
+    //if in arr no empty space
     statusText.textContent = `Draw`;
   } else {
     changePlayer();
